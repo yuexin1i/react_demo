@@ -1,24 +1,41 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+// app/_layout.tsx
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+// 🌟 引入提供者
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <SafeAreaProvider>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+        {/* 1. 首頁 */}
+        <Stack.Screen 
+          name="index" 
+          options={{ 
+            title: 'Turkey Rice App',
+            headerStyle: { backgroundColor: '#fae7a1' },
+            headerShown: false // 通常首頁會隱藏標題列，讓背景圖全螢幕
+          }} 
+        />
+        
+        {/* 2. 詳細資訊頁 */}
+        <Stack.Screen 
+          name="detail" 
+          options={{ 
+            title: 'Restaurant Info',
+            headerStyle: { backgroundColor: '#fff0b8' } 
+          }} 
+        />
+        
+        {/* 3. 照片總覽頁 */}
+        <Stack.Screen 
+          name="image-overview" 
+          options={{ 
+            title: '所有照片',
+            headerStyle: { backgroundColor: '#a599c9' },
+            headerTintColor: 'white' 
+          }} 
+        />
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
