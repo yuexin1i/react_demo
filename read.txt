@@ -1,0 +1,11 @@
+npm run android 開android模擬器
+
+在ExpoPrj目錄執行指令
+
+npx expo install expo-sqlite expo-file-system expo-image-picker expo-linear-gradient expo-asset @react-native-picker/picker
+
+npx expo start -c      啟動 App 開發伺服器&清除快取
+
+npx expo install react-native-image-viewing   支援滑動縮放的 Library
+
+npx expo install @react-native-masked-view/masked-view expo-linear-gradient   安裝MaskedView + LinearGradient 做真正的漸層 shader 效果

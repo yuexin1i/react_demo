@@ -8,4 +8,5 @@ export interface Restaurant {
   addr: string;
   phone: string;
   price: string;
+  is_favorite?: number; // 🌟 記得加這行
 }
