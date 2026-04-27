@@ -79,7 +79,7 @@ export default function RegisterScreen() {
             />
             <TextInput
               style={styles.input}
-              placeholder="Email"
+              placeholder="帳號"
               placeholderTextColor="#aaa"
               keyboardType="email-address"
               autoCapitalize="none"

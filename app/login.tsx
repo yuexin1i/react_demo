@@ -16,8 +16,8 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import DatabaseHelper from '../lib/DatabaseHelper';
 import { useAuth } from '../lib/AuthContext';
+import DatabaseHelper from '../lib/DatabaseHelper';
 
 const { width } = Dimensions.get('window');
 
@@ -29,7 +29,7 @@ export default function LoginScreen() {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert('提示', '請填寫 Email 和密碼');
+      Alert.alert('提示', '請填寫 帳號 和密碼');
       return;
     }
     setIsLoading(true);
@@ -39,7 +39,7 @@ export default function LoginScreen() {
     if (result.success && result.user) {
       setUser(result.user);
       if (result.user.is_admin === 1) {
-        router.replace('/admin');
+        router.replace('/admin' as any);
       } else {
         router.replace('/');
       }
@@ -68,7 +68,7 @@ export default function LoginScreen() {
 
             <TextInput
               style={styles.input}
-              placeholder="Email"
+              placeholder="帳號"
               placeholderTextColor="#aaa"
               keyboardType="email-address"
               autoCapitalize="none"
